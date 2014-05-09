@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">NullApp</string>
+    <string name="navigation_drawer_open">Abra A Barra Lateral</string>
+    <string name="navigation_drawer_close">Feche a Barra Lateral</string>
+    <string name="button_action_bar_1">Advinhe...</string>
+    <string name="action_settings">Configurações</string>
+
+</resources>
