@@ -25,12 +25,10 @@ public class MainActivity extends ActionBarActivity
         implements BarraDeNavegacao.Eventos {
     private BarraDeNavegacao mNavigationDrawerFragment;
     private CharSequence mTitle;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         mNavigationDrawerFragment = (BarraDeNavegacao)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
@@ -41,19 +39,14 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public void onItemSelecionado(int position) {
+        Bundle _args = new Bundle();
+        _args.putInt(Strings.TAB_ID,position+1);
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, BackgroundFragment.onEventoRecebido(getApplicationContext(),position + 1))
+                .replace(R.id.container, BackgroundFragment.onEventoRecebido(_args))
                 .commit();
     }
 
-    public void onSectionAttached(int number) {
-        switch (number) {
-            case 1:
-                mTitle = "bry gay";
-                break;
-        }
-    }
  public boolean onButtonOnActionBarPressed(MenuItem item){
      Toast.makeText(getApplicationContext(),"Bry ainda nao chegou a este nivel de gayzisse",Toast.LENGTH_SHORT).show();
      return true;
@@ -76,7 +69,7 @@ public class MainActivity extends ActionBarActivity
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
+
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_settings) {

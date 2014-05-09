@@ -22,8 +22,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 public class BarraDeNavegacao extends Fragment {
-
-    private static final String PREF_USER_LEARNED_DRAWER = "jaAprendeuSobreBarra";
     private Eventos mCallbacks;
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
@@ -38,7 +36,7 @@ public class BarraDeNavegacao extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        mUserLearnedDrawer = sp.getBoolean(PREF_USER_LEARNED_DRAWER, false);
+        mUserLearnedDrawer = sp.getBoolean(Strings.PREF_USER_LEARNED_DRAWER, false);
         if (savedInstanceState != null) {
             mFromSavedInstanceState = true;
         }
@@ -109,7 +107,7 @@ public class BarraDeNavegacao extends Fragment {
                     mUserLearnedDrawer = true;
                     SharedPreferences sp = PreferenceManager
                             .getDefaultSharedPreferences(getActivity());
-                    sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true).apply();
+                    sp.edit().putBoolean(Strings.PREF_USER_LEARNED_DRAWER, true).apply();
                 }
                 getActivity().supportInvalidateOptionsMenu();
             }
@@ -179,11 +177,10 @@ public class BarraDeNavegacao extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
+        if( mDrawerToggle.onOptionsItemSelected(item))
             return true;
-        }
-        super.onOptionsItemSelected(item);
-        return mCallbacks.onButtonOnActionBarPressed(item);
+        else
+            return mCallbacks.onButtonOnActionBarPressed(item);
     }
     private ActionBar getActionBar() {
         return ((ActionBarActivity) getActivity()).getSupportActionBar();

@@ -14,7 +14,7 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 public class BackgroundFragment extends Fragment {
-    public static Fragment onEventoRecebido(Context contexto,int idDaTab){
+    public static Fragment onEventoRecebido(Bundle _contents){
         return new BackgroundFragment();
     }
     @Override
@@ -32,8 +32,5 @@ public class BackgroundFragment extends Fragment {
         }
         return rootView;
     }
-    @Override
-    public void onAttach(Activity activity) {
 
-        }
         }
