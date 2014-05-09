@@ -109,7 +109,6 @@ public class BarraDeNavegacao extends Fragment {
                             .getDefaultSharedPreferences(getActivity());
                     sp.edit().putBoolean(Strings.PREF_USER_LEARNED_DRAWER, true).apply();
                 }
-                getActivity().supportInvalidateOptionsMenu();
             }
         };
         if (!mUserLearnedDrawer && !mFromSavedInstanceState) {

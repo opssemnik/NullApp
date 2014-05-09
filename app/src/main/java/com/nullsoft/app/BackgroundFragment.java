@@ -28,7 +28,6 @@ public class BackgroundFragment extends Fragment {
         if(rootView != null){
             TextView texto = (TextView)rootView.findViewById(R.id.section_label);
             texto.setText("Bry e gay\nBr Hu3 2.0");
-            texto.setTextColor(Color.WHITE);
         }
         return rootView;
     }
